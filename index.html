@@ -343,6 +343,43 @@
             }
         }
 
+        /* フッター */
+        footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 24px 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             nav {
@@ -413,6 +450,12 @@
                 width: 400px;
                 height: 400px;
             }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -441,6 +484,7 @@
                 <li><a href="#pricing">料金</a></li>
                 <li><a href="#projects">プロジェクト一覧</a></li>
                 <li><a href="#start">始める</a></li>
+                <li><a href="terms.html">利用規約</a></li>
             </ul>
         </nav>
     </header>
@@ -497,6 +541,20 @@
         <!-- スクロールダウンアイコン -->
         <div class="scroll-indicator" aria-label="下にスクロール"></div>
     </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="#privacy">プライバシーポリシー</a>
+                <a href="#tokusho">特定商取引法に基づく表記</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">&copy; 2025 カイワレ. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // ハンバーガーメニューの動作

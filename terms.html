@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - カイワレ</title>
+    <meta name="description" content="カイワレの利用規約ページ。プロジェクト情報掲載サービスとしての性質、免責事項、禁止事項などを記載しています。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* リセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            line-height: 1.8;
+            background: #F9FAFB;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #10B981;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌱';
+            font-size: 1.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .breadcrumb a {
+            color: #10B981;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* メインコンテンツ */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 3rem;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .terms-header h1 {
+            font-size: 2.5rem;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        .preamble {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 目次 */
+        .table-of-contents {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.5rem;
+            color: #10B981;
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .toc-list a {
+            color: #1F2937;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            background: #F0FDF4;
+            color: #10B981;
+        }
+
+        /* 条文セクション */
+        .article {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .article:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .article:nth-child(even) {
+            background: #F9FAFB;
+        }
+
+        .article h2 {
+            font-size: 1.5rem;
+            color: #10B981;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .article h3 {
+            font-size: 1.2rem;
+            color: #1F2937;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .article ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .article li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 重要な条項の強調 */
+        .important {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid #F59E0B;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .important h2 {
+            color: #92400E;
+            border-bottom-color: #F59E0B;
+        }
+
+        .important .warning-badge {
+            display: inline-block;
+            background: #DC2626;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* サービス性質の強調 */
+        .service-nature {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-left: 4px solid #3B82F6;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-nature h2 {
+            color: #1E40AF;
+            border-bottom-color: #3B82F6;
+        }
+
+        .service-nature .info-badge {
+            display: inline-block;
+            background: #3B82F6;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* 戻るトップボタン */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10B981;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            background: #059669;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top::before {
+            content: '↑';
+            font-size: 1.5rem;
+        }
+
+        /* フッター */
+        footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 24px 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            main {
+                padding: 90px 16px 2rem;
+            }
+
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+
+            .article {
+                padding: 1.5rem;
+            }
+
+            .important,
+            .service-nature {
+                padding: 1.5rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        /* 印刷用CSS */
+        @media print {
+            header,
+            .back-to-top,
+            footer {
+                display: none;
+            }
+
+            main {
+                padding-top: 2rem;
+            }
+
+            .article {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #E5E7EB;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">カイワレ</a>
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> / 利用規約
+            </div>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="terms-header">
+            <h1>利用規約</h1>
+            <p class="last-updated">最終更新日：2025年11月2日</p>
+        </div>
+
+        <!-- 前文 -->
+        <section class="preamble">
+            <p>
+                本利用規約（以下「本規約」といいます）は、カイワレ（以下「当サービス」といいます）が提供するプロジェクト情報掲載サービスの利用条件を定めるものです。
+                本サービスを利用される方は、本規約に同意したものとみなされます。
+            </p>
+        </section>
+
+        <!-- 目次 -->
+        <section class="table-of-contents">
+            <h2>目次</h2>
+            <ol class="toc-list">
+                <li><a href="#article1">第1条 定義</a></li>
+                <li><a href="#article2">第2条 サービスの性質</a></li>
+                <li><a href="#article3">第3条 利用資格</a></li>
+                <li><a href="#article4">第4条 プロジェクトの掲載申込み</a></li>
+                <li><a href="#article5">第5条 審査</a></li>
+                <li><a href="#article6">第6条 掲載料</a></li>
+                <li><a href="#article7">第7条 プロジェクトの掲載</a></li>
+                <li><a href="#article8">第8条 支援実績の報告</a></li>
+                <li><a href="#article9">第9条 禁止事項</a></li>
+                <li><a href="#article10">第10条 掲載の停止・削除</a></li>
+                <li><a href="#article11">第11条 プロジェクト実行者の責任</a></li>
+                <li><a href="#article12">第12条 支援者の自己責任</a></li>
+                <li><a href="#article13">第13条 免責事項</a></li>
+                <li><a href="#article14">第14条 知的財産権</a></li>
+                <li><a href="#article15">第15条 個人情報の取扱い</a></li>
+                <li><a href="#article16">第16条 通報制度</a></li>
+                <li><a href="#article17">第17条 本規約の変更</a></li>
+                <li><a href="#article18">第18条 サービスの変更・終了</a></li>
+                <li><a href="#article19">第19条 準拠法・管轄裁判所</a></li>
+                <li><a href="#article20">第20条 協議解決</a></li>
+            </ol>
+        </section>
+
+        <!-- 各条文 -->
+        <article class="article" id="article1">
+            <h2>第1条（定義）</h2>
+            <p>本規約において使用する用語の定義は、次の各号に定めるとおりとします。</p>
+            <ul>
+                <li><strong>「本サービス」</strong>：カイワレが運営するプロジェクト情報掲載サービスの総称をいいます。</li>
+                <li><strong>「プロジェクト実行者」</strong>：本サービスにプロジェクト情報の掲載を希望し、掲載料を支払う個人または法人をいいます。</li>
+                <li><strong>「支援者」</strong>：本サービスに掲載されたプロジェクトに対して支援を行う個人または法人をいいます。</li>
+                <li><strong>「プロジェクト」</strong>：プロジェクト実行者が企画・実行する観光・まちづくり等に関する事業をいいます。</li>
+                <li><strong>「掲載料」</strong>：プロジェクト実行者が本サービスにプロジェクト情報を掲載するために支払う料金をいいます。</li>
+            </ul>
+        </article>
+
+        <article class="article service-nature" id="article2">
+            <span class="info-badge">重要</span>
+            <h2>第2条（サービスの性質）</h2>
+            <p>本サービスは、以下の性質を有するプロジェクト情報掲載サービスです。</p>
+            <ul>
+                <li>本サービスは、プロジェクト実行者が企画するプロジェクトの情報を掲載する場所を提供するものであり、資金調達や商取引の仲介・代行を行うものではありません。</li>
+                <li>支援金の授受は、支援者とプロジェクト実行者の間で直接行われるものとし、カイワレは資金の授受に一切関与しません。</li>
+                <li>本サービスに表示される支援実績は、プロジェクト実行者の申告に基づくものであり、カイワレが独自に確認・保証するものではありません。</li>
+                <li>カイワレは、プロジェクトの実現可能性、プロジェクト実行者の信用性、支援実績の正確性について、一切保証しません。</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article3">
+            <h2>第3条（利用資格）</h2>
+            <p>本サービスを利用できる方は、以下の全ての条件を満たす必要があります。</p>
+            <ul>
+                <li>満18歳以上であること</li>
+                <li>日本国内に居住または事業拠点を持つこと</li>
+                <li>反社会的勢力またはこれに準ずる者でないこと</li>
+                <li>過去に本規約違反等により本サービスの利用を停止されたことがないこと</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article4">
+            <h2>第4条（プロジェクトの掲載申込み）</h2>
+            <p>プロジェクト実行者は、以下の手順に従い、プロジェクトの掲載を申し込むものとします。</p>
+            <ul>
+                <li>当サービス所定の申込みフォームから必要事項を入力し、申請を行うこと</li>
+                <li>本人確認書類、プロジェクト計画書、銀行口座情報等、カイワレが求める書類を提出すること</li>
+                <li>申込み内容に虚偽の記載をしないこと</li>
+                <li>プロジェクト実行者は、申込み時に提供した情報の正確性について責任を負うものとします</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article5">
+            <h2>第5条（審査）</h2>
+            <p>カイワレは、掲載申込みを受けた後、以下の基準に基づき審査を行います。</p>
+            <ul>
+                <li>観光・まちづくり関連のプロジェクトであること</li>
+                <li>プロジェクトの実現可能性が一定程度認められること</li>
+                <li>法令に違反しないこと</li>
+                <li>公序良俗に反しないこと</li>
+                <li>その他カイワレが定める基準を満たすこと</li>
+            </ul>
+            <p>なお、以下の点についてご留意ください。</p>
+            <ul>
+                <li>審査結果は申込み後、原則として7営業日以内に通知します</li>
+                <li>審査に不合格となった場合、その理由を説明する義務を負いません</li>
+                <li>審査基準の詳細は非開示とします</li>
+                <li>審査に合格したプロジェクトであっても、その実現を保証するものではありません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article6">
+            <h2>第6条（掲載料）</h2>
+            <p>掲載料は以下のとおりとします。</p>
+            <ul>
+                <li><strong>金額</strong>：30,000円（税込）</li>
+                <li><strong>掲載期間</strong>：90日間</li>
+                <li><strong>支払方法</strong>：銀行振込またはクレジットカード決済</li>
+                <li><strong>支払時期</strong>：先払い制（入金確認後に掲載を開始します）</li>
+            </ul>
+            <p><strong>返金について：</strong></p>
+            <ul>
+                <li>審査に合格し、掲載開始後の返金は一切行いません</li>
+                <li>審査に不合格となった場合は、掲載料の全額を返金します</li>
+                <li>プロジェクト実行者の都合による掲載期間中の掲載取り下げの場合、返金は行いません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article7">
+            <h2>第7条（プロジェクトの掲載）</h2>
+            <p>プロジェクトの掲載に関する事項は以下のとおりです。</p>
+            <ul>
+                <li>掲載開始日は、入金確認後、カイワレが指定する日とします</li>
+                <li>プロジェクト実行者は、掲載期間中、プロジェクト内容の編集が可能です</li>
+                <li>プロジェクト実行者は、掲載内容の正確性について責任を負うものとします</li>
+                <li>虚偽の情報を掲載することを禁止します</li>
+                <li>掲載期間終了後、プロジェクト情報は自動的に非公開となります</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article8">
+            <h2>第8条（支援実績の報告）</h2>
+            <p>支援実績の報告・表示は以下の方法で行います。</p>
+            <ul>
+                <li>プロジェクト実行者は、支援実績を自己申告により報告するものとします</li>
+                <li>カイワレは、報告を受けた支援実績を手動で本サービス上に反映します</li>
+                <li>カイワレは、報告された支援実績の正確性を確認・保証するものではありません</li>
+                <li>虚偽の支援実績を報告することを禁止します。虚偽報告が判明した場合、掲載の即時停止、損害賠償請求等の措置をとることがあります</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article9">
+            <h2>第9条（禁止事項）</h2>
+            <p>本サービスの利用にあたり、以下の行為を禁止します。</p>
+            <ul>
+                <li>虚偽の情報を掲載すること</li>
+                <li>法令に違反するプロジェクトを掲載すること</li>
+                <li>公序良俗に反する内容を掲載すること</li>
+                <li>第三者の知的財産権、プライバシー、名誉その他の権利を侵害する行為</li>
+                <li>ギャンブル、投機的な内容のプロジェクト</li>
+                <li>マルチ商法、ネズミ講的要素を含むプロジェクト</li>
+                <li>政治活動、宗教活動を主目的とした勧誘行為</li>
+                <li>本サービスの運営を妨げる行為</li>
+                <li>その他カイワレが不適切と判断する行為</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article10">
+            <h2>第10条（掲載の停止・削除）</h2>
+            <p>カイワレは、以下の場合、事前の通知なく掲載を停止または削除することができます。</p>
+            <ul>
+                <li>本規約に違反した場合</li>
+                <li>掲載内容が不適切であるとカイワレが判断した場合</li>
+                <li>プロジェクト実行者との連絡が取れなくなった場合</li>
+                <li>その他、本サービスの運営上必要があるとカイワレが判断した場合</li>
+            </ul>
+            <p>なお、以下の点にご留意ください。</p>
+            <ul>
+                <li>掲載の停止・削除にあたり、その理由を説明する義務を負いません</li>
+                <li>掲載の停止・削除があった場合でも、掲載料の返金は行いません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article11">
+            <h2>第11条（プロジェクト実行者の責任）</h2>
+            <p>プロジェクト実行者は、以下の責任を負うものとします。</p>
+            <ul>
+                <li>掲載したプロジェクト内容の正確性を保証すること</li>
+                <li>支援者に対して誠実に対応すること</li>
+                <li>約束したリターンを適切に提供すること（リターンを設定した場合）</li>
+                <li>支援金を適切に使用し、プロジェクトの実現に努めること</li>
+                <li>関連する法令を遵守すること</li>
+                <li>支援者とのトラブルは、当事者間で誠実に解決すること</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article12">
+            <h2>第12条（支援者の自己責任）</h2>
+            <p>支援者は、以下の事項を理解し、自己責任において支援を行うものとします。</p>
+            <ul>
+                <li>プロジェクトが計画どおりに実現しない可能性があること</li>
+                <li>約束されたリターンが提供されない可能性があること</li>
+                <li>支援金が返還されない可能性があること</li>
+                <li>カイワレは、プロジェクトの実現、リターンの提供、支援金の返還について一切保証しないこと</li>
+                <li>プロジェクト実行者と直接連絡を取り、疑問点を解消することを推奨します</li>
+            </ul>
+        </article>
+
+        <article class="article important" id="article13">
+            <span class="warning-badge">免責事項</span>
+            <h2>第13条（免責事項）</h2>
+            <p><strong>カイワレは、以下の事項について一切の責任を負いません。</strong></p>
+            <ul>
+                <li>プロジェクトの実現可能性、成功の見込み</li>
+                <li>プロジェクト実行者の信用性、能力、資質</li>
+                <li>支援実績の正確性、真実性</li>
+                <li>掲載情報の正確性、完全性、最新性</li>
+                <li>プロジェクト実行者と支援者間のトラブル、紛争</li>
+                <li>プロジェクトの未達成、中止、延期</li>
+                <li>リターンの未提供、遅延、内容の相違</li>
+                <li>支援金の使途、管理方法</li>
+                <li>本サービスの中断、終了、変更による損害</li>
+                <li>データの消失、破損</li>
+                <li>本サービスを通じた第三者との取引により生じた損害</li>
+                <li>その他本サービスの利用に起因して生じた一切の損害</li>
+            </ul>
+            <p style="margin-top: 1.5rem;">
+                <strong>本サービスは、プロジェクト情報の掲載場所を提供するものであり、プロジェクトの成否や取引の安全性を保証するものではありません。
+                利用者は、自己の責任と判断において本サービスを利用するものとします。</strong>
+            </p>
+        </article>
+
+        <article class="article" id="article14">
+            <h2>第14条（知的財産権）</h2>
+            <p>知的財産権の取扱いは以下のとおりとします。</p>
+            <ul>
+                <li>プロジェクトに関する知的財産権は、プロジェクト実行者に帰属します</li>
+                <li>プロジェクト実行者は、カイワレに対し、本サービスへの掲載および広報活動の目的で、プロジェクト内容を使用することを許諾するものとします</li>
+                <li>本サービスのウェブサイトのデザイン、システム、コンテンツ等に関する著作権その他の知的財産権は、カイワレまたは正当な権利者に帰属します</li>
+                <li>利用者は、カイワレの事前の書面による承諾なく、本サービスのコンテンツを複製、転載、配布することはできません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article15">
+            <h2>第15条（個人情報の取扱い）</h2>
+            <p>個人情報の取扱いは以下のとおりとします。</p>
+            <ul>
+                <li>カイワレは、利用者の個人情報を、別途定めるプライバシーポリシーに従って取り扱います</li>
+                <li>カイワレは、審査およびサービス提供に必要な範囲で個人情報を利用します</li>
+                <li>カイワレは、法令に基づく場合を除き、利用者の同意なく第三者に個人情報を提供しません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article16">
+            <h2>第16条（通報制度）</h2>
+            <p>本サービスでは、不適切なプロジェクトに関する通報を受け付けています。</p>
+            <ul>
+                <li>利用者は、本規約に違反すると思われるプロジェクトを発見した場合、カイワレに通報することができます</li>
+                <li>カイワレは、通報を受けた場合、必要に応じて調査を行い、適切な措置を講じます</li>
+                <li>通報者の情報は秘匿し、第三者に開示しません</li>
+                <li>通報があった場合でも、必ずしも措置を講じるとは限りません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article17">
+            <h2>第17条（本規約の変更）</h2>
+            <p>本規約の変更は以下のとおり行います。</p>
+            <ul>
+                <li>カイワレは、必要に応じて本規約を変更することができます</li>
+                <li>本規約を変更する場合、変更内容を本サービス上で通知します</li>
+                <li>変更後に本サービスの利用を継続した場合、変更後の規約に同意したものとみなします</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article18">
+            <h2>第18条（サービスの変更・終了）</h2>
+            <p>本サービスの変更・終了について定めます。</p>
+            <ul>
+                <li>カイワレは、事前の通知なく、本サービスの内容を変更または終了することができます</li>
+                <li>本サービスを終了する場合、可能な限り事前に通知するよう努めますが、義務を負うものではありません</li>
+                <li>本サービスの終了時、掲載料の返金義務を負いません</li>
+                <li>本サービスの変更・終了により利用者に生じた損害について、カイワレは一切の責任を負いません</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article19">
+            <h2>第19条（準拠法・管轄裁判所）</h2>
+            <p>本規約および本サービスの利用に関する準拠法・管轄は以下のとおりとします。</p>
+            <ul>
+                <li>本規約は日本法に準拠し、日本法に従って解釈されます</li>
+                <li>本サービスに関連して生じた紛争については、福岡地方裁判所を第一審の専属的合意管轄裁判所とします</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article20">
+            <h2>第20条（協議解決）</h2>
+            <p>本規約に定めのない事項または本規約の解釈に疑義が生じた場合、カイワレと利用者は誠実に協議の上、解決を図るものとします。</p>
+        </article>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 8px;">
+            <p style="margin-bottom: 1rem;">以上</p>
+            <p style="color: #6B7280; font-size: 0.9rem;">2025年11月2日 制定</p>
+        </div>
+    </main>
+
+    <!-- 戻るトップボタン -->
+    <div class="back-to-top" aria-label="トップへ戻る"></div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="#privacy">プライバシーポリシー</a>
+                <a href="#tokusho">特定商取引法に基づく表記</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">&copy; 2025 カイワレ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 戻るトップボタンの表示制御
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 現在のスクロール位置をハイライト（目次）
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.toc-list a').forEach(link => {
+                        link.style.fontWeight = 'normal';
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.style.fontWeight = '700';
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-100px 0px -66%',
+            threshold: 0
+        });
+
+        document.querySelectorAll('.article').forEach(article => {
+            observer.observe(article);
+        });
+    </script>
+</body>
+</html>
