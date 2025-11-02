@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - カイワレ</title>
+    <meta name="description" content="カイワレのプライバシーポリシー（個人情報保護方針）。個人情報の取扱い、利用目的、安全管理措置などについて説明します。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* リセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            line-height: 1.8;
+            background: #F9FAFB;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #10B981;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌱';
+            font-size: 1.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .breadcrumb a {
+            color: #10B981;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* メインコンテンツ */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 3rem;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-header h1 {
+            font-size: 2.5rem;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-header .subtitle {
+            font-size: 1.2rem;
+            color: #10B981;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        /* 前文 */
+        .preamble {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #10B981;
+        }
+
+        /* わかりやすい説明ボックス */
+        .summary-box {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3B82F6;
+        }
+
+        .summary-box h2 {
+            font-size: 1.5rem;
+            color: #1E40AF;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-box h2::before {
+            content: '💡';
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .summary-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .summary-item h3 {
+            font-size: 1.1rem;
+            color: #3B82F6;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-item ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .summary-item li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-item li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* 目次 */
+        .table-of-contents {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.5rem;
+            color: #10B981;
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .toc-list a {
+            color: #1F2937;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            background: #F0FDF4;
+            color: #10B981;
+        }
+
+        /* 条文セクション */
+        .article {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .article:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .article:nth-child(even) {
+            background: #F9FAFB;
+        }
+
+        .article h2 {
+            font-size: 1.5rem;
+            color: #10B981;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .article h3 {
+            font-size: 1.2rem;
+            color: #1F2937;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .article ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .article li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 重要な条項の強調 */
+        .important {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid #F59E0B;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .important h2 {
+            color: #92400E;
+            border-bottom-color: #F59E0B;
+        }
+
+        .important .info-badge {
+            display: inline-block;
+            background: #F59E0B;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* 事業者情報ボックス */
+        .contact-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border-left: 4px solid #10B981;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-box h2 {
+            color: #065F46;
+            border-bottom-color: #10B981;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .contact-info strong {
+            min-width: 150px;
+            color: #065F46;
+        }
+
+        /* 戻るトップボタン */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10B981;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            background: #059669;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top::before {
+            content: '↑';
+            font-size: 1.5rem;
+        }
+
+        /* フッター */
+        footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 24px 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            main {
+                padding: 90px 16px 2rem;
+            }
+
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-header .subtitle {
+                font-size: 1rem;
+            }
+
+            .article {
+                padding: 1.5rem;
+            }
+
+            .important,
+            .contact-box,
+            .summary-box {
+                padding: 1.5rem;
+            }
+
+            .toc-list,
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-info p {
+                flex-direction: column;
+            }
+
+            .contact-info strong {
+                min-width: auto;
+            }
+        }
+
+        /* 印刷用CSS */
+        @media print {
+            header,
+            .back-to-top,
+            footer {
+                display: none;
+            }
+
+            main {
+                padding-top: 2rem;
+            }
+
+            .article {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #E5E7EB;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">カイワレ</a>
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> / プライバシーポリシー
+            </div>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="privacy-header">
+            <h1>プライバシーポリシー</h1>
+            <p class="subtitle">個人情報保護方針</p>
+            <p class="last-updated">制定日・最終更新日：2025年11月2日</p>
+        </div>
+
+        <!-- 前文 -->
+        <section class="preamble">
+            <p>
+                黒船（以下「当社」といいます）は、カイワレ（以下「本サービス」といいます）の提供にあたり、
+                ご利用いただく皆様の個人情報を適切に取り扱うことが極めて重要であると認識しております。
+                本プライバシーポリシー（以下「本ポリシー」といいます）は、当社が個人情報をどのように収集、利用、
+                管理、保護するかについて説明するものです。
+            </p>
+        </section>
+
+        <!-- わかりやすい説明 -->
+        <section class="summary-box">
+            <h2>個人情報の取り扱いについて</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>📋 何を収集するか</h3>
+                    <ul>
+                        <li>氏名、住所、連絡先</li>
+                        <li>本人確認書類</li>
+                        <li>プロジェクト情報</li>
+                        <li>アクセスログ</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h3>🎯 なぜ収集するか</h3>
+                    <ul>
+                        <li>プロジェクトの審査</li>
+                        <li>サービスの提供</li>
+                        <li>お問い合わせ対応</li>
+                        <li>サービス改善</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h3>🔒 どう保護するか</h3>
+                    <ul>
+                        <li>SSL暗号化通信</li>
+                        <li>アクセス権限管理</li>
+                        <li>定期的なバックアップ</li>
+                        <li>従業員への教育</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 目次 -->
+        <section class="table-of-contents">
+            <h2>目次</h2>
+            <ol class="toc-list">
+                <li><a href="#article1">第1条 個人情報の定義</a></li>
+                <li><a href="#article2">第2条 事業者情報</a></li>
+                <li><a href="#article3">第3条 個人情報の利用目的</a></li>
+                <li><a href="#article4">第4条 個人情報の収集方法</a></li>
+                <li><a href="#article5">第5条 個人情報の第三者提供</a></li>
+                <li><a href="#article6">第6条 個人情報の委託</a></li>
+                <li><a href="#article7">第7条 個人情報の保管期間</a></li>
+                <li><a href="#article8">第8条 個人情報の安全管理措置</a></li>
+                <li><a href="#article9">第9条 Cookie（クッキー）について</a></li>
+                <li><a href="#article10">第10条 Google Analyticsの使用</a></li>
+                <li><a href="#article11">第11条 SSL暗号化通信</a></li>
+                <li><a href="#article12">第12条 個人情報の開示等の請求</a></li>
+                <li><a href="#article13">第13条 未成年者の個人情報</a></li>
+                <li><a href="#article14">第14条 お問い合わせ窓口</a></li>
+                <li><a href="#article15">第15条 プライバシーポリシーの変更</a></li>
+                <li><a href="#article16">第16条 適用範囲</a></li>
+                <li><a href="#article17">第17条 個人情報保護法の遵守</a></li>
+            </ol>
+        </section>
+
+        <!-- 各条文 -->
+        <article class="article" id="article1">
+            <h2>第1条（個人情報の定義）</h2>
+            <p>
+                本ポリシーにおいて「個人情報」とは、個人情報保護法第2条第1項に定める個人情報、
+                すなわち生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日その他の記述等により
+                特定の個人を識別することができるもの（他の情報と容易に照合することができ、
+                それにより特定の個人を識別することができることとなるものを含みます）をいいます。
+            </p>
+        </article>
+
+        <article class="article contact-box" id="article2">
+            <span class="info-badge">事業者情報</span>
+            <h2>第2条（事業者情報）</h2>
+            <div class="contact-info">
+                <p><strong>事業者名：</strong>黒船</p>
+                <p><strong>代表者名：</strong>小林佑輔</p>
+                <p><strong>所在地：</strong>〒839-1408 福岡県うきは市浮羽町朝田647-1 うきはICT研究所内</p>
+                <p><strong>個人情報保護管理者：</strong>小林佑輔</p>
+                <p><strong>メールアドレス：</strong>g0632085@gmail.com</p>
+                <p><strong>電話番号：</strong>0943-76-9169</p>
+            </div>
+        </article>
+
+        <article class="article" id="article3">
+            <h2>第3条（個人情報の利用目的）</h2>
+            <p>当社は、収集した個人情報を以下の目的で利用します。</p>
+            <h3>1. プロジェクト実行者の個人情報</h3>
+            <ul>
+                <li>プロジェクト掲載の審査</li>
+                <li>プロジェクト情報の掲載</li>
+                <li>掲載料の請求および決済処理</li>
+                <li>本人確認およびなりすまし防止</li>
+                <li>規約違反行為の調査・対応</li>
+                <li>本サービスに関する重要なお知らせの送付</li>
+            </ul>
+            <h3>2. 支援者・閲覧者の個人情報</h3>
+            <ul>
+                <li>お問い合わせへの対応</li>
+                <li>サービスの改善・開発</li>
+                <li>アクセス解析および統計分析（個人を特定しない形で実施）</li>
+            </ul>
+            <h3>3. 共通の利用目的</h3>
+            <ul>
+                <li>法令に基づく対応</li>
+                <li>その他、本サービスの提供・運営に必要な業務</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article4">
+            <h2>第4条（個人情報の収集方法）</h2>
+            <p>当社は、以下の方法により個人情報を収集します。</p>
+            <ul>
+                <li>本サービスのWebフォームからの入力</li>
+                <li>メールでの提出</li>
+                <li>郵送での提出</li>
+                <li>電話での聞き取り</li>
+                <li>Cookie等の自動収集技術（詳細は第9条参照）</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article5">
+            <h2>第5条（個人情報の第三者提供）</h2>
+            <p>当社は、以下の場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
+            <ul>
+                <li>ご本人の同意がある場合</li>
+                <li>法令に基づく場合</li>
+                <li>人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難である場合</li>
+                <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難である場合</li>
+                <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがある場合</li>
+                <li>次条に定める業務委託先への提供</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article6">
+            <h2>第6条（個人情報の委託）</h2>
+            <p>当社は、個人情報の取り扱いの全部または一部を以下の業務委託先に委託する場合があります。</p>
+            <ul>
+                <li>決済代行業者（クレジットカード決済処理時）</li>
+                <li>サーバー・ホスティング事業者</li>
+                <li>メール配信サービス事業者</li>
+                <li>アクセス解析サービス提供者（Google Analytics等）</li>
+            </ul>
+            <p>委託先に対しては、個人情報の適切な管理を義務付け、必要かつ適切な監督を行います。</p>
+        </article>
+
+        <article class="article" id="article7">
+            <h2>第7条（個人情報の保管期間）</h2>
+            <p>当社は、以下の期間、個人情報を保管します。</p>
+            <ul>
+                <li>プロジェクト掲載終了後5年間保管</li>
+                <li>会計帳簿関連の情報は、法令に基づき7年間保管</li>
+                <li>保管期間経過後は、速やかに削除または匿名化処理を行います</li>
+            </ul>
+        </article>
+
+        <article class="article important" id="article8">
+            <span class="info-badge">安全管理</span>
+            <h2>第8条（個人情報の安全管理措置）</h2>
+            <p>当社は、個人情報の漏えい、滅失または毀損の防止その他の個人情報の安全管理のため、以下の措置を講じます。</p>
+            <ul>
+                <li><strong>技術的安全管理措置</strong>
+                    <ul>
+                        <li>不正アクセス防止のためのファイアウォール設定</li>
+                        <li>SSL/TLS暗号化通信の使用（第11条参照）</li>
+                        <li>ウイルス対策ソフトウェアの導入</li>
+                        <li>定期的なバックアップの実施</li>
+                    </ul>
+                </li>
+                <li><strong>組織的安全管理措置</strong>
+                    <ul>
+                        <li>個人情報保護管理者の設置</li>
+                        <li>アクセス権限の管理</li>
+                        <li>個人情報の取り扱いに関する規程の整備</li>
+                    </ul>
+                </li>
+                <li><strong>人的安全管理措置</strong>
+                    <ul>
+                        <li>従業員に対する教育・研修の実施</li>
+                        <li>秘密保持契約の締結</li>
+                    </ul>
+                </li>
+                <li><strong>物理的安全管理措置</strong>
+                    <ul>
+                        <li>個人情報を取り扱う区域の管理</li>
+                        <li>個人情報を含む書類等の施錠保管</li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+
+        <article class="article" id="article9">
+            <h2>第9条（Cookie（クッキー）について）</h2>
+            <h3>Cookieとは</h3>
+            <p>
+                Cookieとは、Webサイトがお客様のコンピュータに送信する小さなデータファイルで、
+                お客様のブラウザに保存されます。
+            </p>
+            <h3>Cookieの使用目的</h3>
+            <ul>
+                <li>ユーザー体験の向上（ログイン状態の保持など）</li>
+                <li>アクセス解析（訪問者数、閲覧ページ等の分析）</li>
+                <li>サービスの改善</li>
+            </ul>
+            <h3>Cookieの無効化</h3>
+            <p>
+                お客様は、ブラウザの設定によりCookieを無効化することができます。
+                ただし、Cookieを無効化した場合、本サービスの一部機能が正常に動作しない場合があります。
+            </p>
+        </article>
+
+        <article class="article" id="article10">
+            <h2>第10条（Google Analyticsの使用について）</h2>
+            <p>
+                本サービスでは、サービスの利用状況を把握するため、Google社が提供するアクセス解析サービス
+                「Google Analytics」を使用しています。
+            </p>
+            <ul>
+                <li>Google Analyticsは、Cookieを使用して匿名のトラフィックデータを収集します</li>
+                <li>収集されるデータは個人を特定するものではありません</li>
+                <li>データの利用は、Googleのプライバシーポリシーに準拠します</li>
+                <li>Google Analyticsのオプトアウトは、Google社が提供するツールから可能です</li>
+            </ul>
+            <p>
+                Google Analyticsの詳細については、
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー</a>をご確認ください。
+            </p>
+        </article>
+
+        <article class="article" id="article11">
+            <h2>第11条（SSL暗号化通信について）</h2>
+            <p>
+                本サービスでは、個人情報の送信時にSSL（Secure Sockets Layer）/TLS（Transport Layer Security）
+                暗号化通信を使用しています。これにより、第三者による盗聴、改ざんを防止し、
+                安全に個人情報を送信することができます。
+            </p>
+        </article>
+
+        <article class="article important" id="article12">
+            <span class="info-badge">開示請求</span>
+            <h2>第12条（個人情報の開示・訂正・削除等の請求）</h2>
+            <p>ご本人は、当社に対して以下の請求を行うことができます。</p>
+            <ul>
+                <li>個人情報の開示</li>
+                <li>個人情報の訂正、追加または削除</li>
+                <li>個人情報の利用停止または消去</li>
+                <li>個人情報の第三者提供の停止</li>
+            </ul>
+            <h3>請求方法</h3>
+            <p>上記の請求を行う場合は、以下の手順に従ってください。</p>
+            <ol>
+                <li>第14条記載のお問い合わせ窓口へ、書面またはメールにて申請してください</li>
+                <li>ご本人確認のため、運転免許証、マイナンバーカード等の本人確認書類のコピーを提示してください</li>
+                <li>当社は、原則として2週間以内に対応いたします</li>
+                <li>開示請求の場合のみ、手数料として1,000円を申し受けます</li>
+            </ol>
+            <h3>ご注意</h3>
+            <ul>
+                <li>法令により開示できない場合があります</li>
+                <li>代理人による請求の場合は、委任状等の提出が必要です</li>
+            </ul>
+        </article>
+
+        <article class="article" id="article13">
+            <h2>第13条（未成年者の個人情報）</h2>
+            <p>
+                18歳未満の方が本サービスを利用する場合は、保護者の同意が必要です。
+                また、当社は16歳未満の方の個人情報は原則として収集しません。
+            </p>
+        </article>
+
+        <article class="article contact-box" id="article14">
+            <span class="info-badge">お問い合わせ</span>
+            <h2>第14条（お問い合わせ窓口）</h2>
+            <p>個人情報の取り扱いに関するお問い合わせは、以下の窓口までご連絡ください。</p>
+            <div class="contact-info">
+                <p><strong>メールアドレス：</strong>g0632085@gmail.com</p>
+                <p><strong>電話番号：</strong>0943-76-9169</p>
+                <p><strong>受付時間：</strong>平日 10:00〜17:00（土日祝日・年末年始を除く）</p>
+                <p><strong>郵送先：</strong>〒839-1408 福岡県うきは市浮羽町朝田647-1 うきはICT研究所内 黒船 個人情報保護管理者宛</p>
+            </div>
+        </article>
+
+        <article class="article" id="article15">
+            <h2>第15条（プライバシーポリシーの変更）</h2>
+            <p>
+                当社は、法令の変更、サービス内容の変更その他の理由により、本ポリシーを変更することがあります。
+                重要な変更を行う場合は、本サービス上で通知いたします。
+                変更後に本サービスの利用を継続した場合、変更後のプライバシーポリシーに同意したものとみなします。
+            </p>
+        </article>
+
+        <article class="article" id="article16">
+            <h2>第16条（適用範囲）</h2>
+            <p>
+                本ポリシーは、本サービスにおいてのみ適用されます。
+                本サービスからリンクされている外部のWebサイト（プロジェクト実行者の個人サイト等）における
+                個人情報の取り扱いについては、当社は責任を負いません。
+            </p>
+        </article>
+
+        <article class="article" id="article17">
+            <h2>第17条（個人情報保護法の遵守）</h2>
+            <p>
+                当社は、個人情報保護法その他の関連法令およびガイドラインを遵守し、
+                個人情報の適切な取り扱いに努めます。
+            </p>
+        </article>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 8px;">
+            <p style="margin-bottom: 1rem;">以上</p>
+            <p style="color: #6B7280; font-size: 0.9rem;">制定日：2025年11月2日</p>
+        </div>
+    </main>
+
+    <!-- 戻るトップボタン -->
+    <div class="back-to-top" aria-label="トップへ戻る"></div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="#tokusho">特定商取引法に基づく表記</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">&copy; 2025 カイワレ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 戻るトップボタンの表示制御
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 現在のスクロール位置をハイライト（目次）
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.toc-list a').forEach(link => {
+                        link.style.fontWeight = 'normal';
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.style.fontWeight = '700';
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-100px 0px -66%',
+            threshold: 0
+        });
+
+        document.querySelectorAll('.article').forEach(article => {
+            observer.observe(article);
+        });
+    </script>
+</body>
+</html>
