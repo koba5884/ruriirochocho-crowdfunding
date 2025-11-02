@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カイワレの特徴 - 定額手数料のクラウドファンディング</title>
+    <meta name="description" content="カイワレの特徴。一律20万円の定額手数料制、地域プロジェクト特化、シンプルな仕組みで、あなたのプロジェクトを応援します。">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* リセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            line-height: 1.8;
+            background: #F9FAFB;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #10B981;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌱';
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #10B981;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+            padding: 120px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #1F2937;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero .highlight {
+            color: #10B981;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #6B7280;
+        }
+
+        /* セクション共通 */
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1F2937;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #6B7280;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* 比較セクション */
+        .comparison-section {
+            background: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #10B981;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        tr:nth-child(even) td {
+            background: #F9FAFB;
+        }
+
+        .table-highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .table-old {
+            color: #DC2626;
+            text-decoration: line-through;
+        }
+
+        .table-benefit {
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* 特徴カード */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #10B981;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .feature-points {
+            list-style: none;
+        }
+
+        .feature-points li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: #4B5563;
+        }
+
+        .feature-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* ステップフロー */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #10B981;
+            color: white;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* おすすめカード */
+        .recommend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .recommend-card {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #10B981;
+        }
+
+        .recommend-card h3 {
+            font-size: 1.3rem;
+            color: #065F46;
+            margin-bottom: 1rem;
+        }
+
+        .recommend-card p {
+            color: #4B5563;
+            line-height: 1.8;
+        }
+
+        /* 料金ボックス */
+        .pricing-box {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .pricing-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .pricing-includes {
+            list-style: none;
+        }
+
+        .pricing-includes li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-includes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* 注意事項ボックス */
+        .warning-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid #F59E0B;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+
+        .warning-box h3 {
+            color: #92400E;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box h3::before {
+            content: '⚠️';
+        }
+
+        .warning-box ul {
+            list-style: none;
+        }
+
+        .warning-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #92400E;
+        }
+
+        .warning-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            color: #4B5563;
+            line-height: 1.8;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #10B981;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* フッター */
+        footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 24px 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 16px;
+            }
+
+            .features-grid,
+            .steps-container,
+            .recommend-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 1rem;
+                border: 1px solid #E5E7EB;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            td {
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding: 1.5rem;
+                font-weight: 700;
+                background: #F3F4F6;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">カイワレ</a>
+            <a href="index.html" class="nav-link">← トップページに戻る</a>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>成長を妨げない、<br><span class="highlight">定額手数料</span>という選択</h1>
+            <p>地域プロジェクトを応援する、新しいカタチのクラウドファンディング</p>
+        </div>
+    </section>
+
+    <!-- 比較セクション -->
+    <section class="comparison-section">
+        <div class="section-content">
+            <h2 class="section-title">なぜ今、定額手数料なのか？</h2>
+            <p class="section-subtitle">
+                従来のクラウドファンディングサイトでは、集まった金額が大きくなるほど手数料負担が重くなります。<br>
+                1,000万円のプロジェクトなら、従来型では100万円以上が手数料として消えてしまうことも。<br>
+                <strong>カイワレなら、規模に関わらず一律20万円。</strong>集まった支援金を、最大限プロジェクトに活かせます。
+            </p>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>プロジェクト規模</th>
+                            <th>従来型（15%）</th>
+                            <th>カイワレ</th>
+                            <th>差額</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="プロジェクト規模">300万円</td>
+                            <td data-label="従来型（15%）"><span class="table-old">45万円</span></td>
+                            <td data-label="カイワレ"><span class="table-highlight">20万円</span></td>
+                            <td data-label="差額"><span class="table-benefit">25万円お得</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="プロジェクト規模">500万円</td>
+                            <td data-label="従来型（15%）"><span class="table-old">75万円</span></td>
+                            <td data-label="カイワレ"><span class="table-highlight">20万円</span></td>
+                            <td data-label="差額"><span class="table-benefit">55万円お得</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="プロジェクト規模">1,000万円</td>
+                            <td data-label="従来型（15%）"><span class="table-old">150万円</span></td>
+                            <td data-label="カイワレ"><span class="table-highlight">20万円</span></td>
+                            <td data-label="差額"><span class="table-benefit">130万円お得</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3つの特徴 -->
+    <section style="background: #F9FAFB;">
+        <div class="section-content">
+            <h2 class="section-title">カイワレが選ばれる3つの理由</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">一律20万円、それだけ</h3>
+                    <p class="feature-description">
+                        掲載料は20万円（税込）のみ。集まった金額に関わらず、追加費用は一切かかりません。
+                        高額プロジェクトを計画している方ほど、その差は歴然です。
+                    </p>
+                    <ul class="feature-points">
+                        <li>掲載期間：最大90日間</li>
+                        <li>成功・失敗に関わらず定額</li>
+                        <li>わかりやすい料金体系</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">支援金は、直接あなたの手に</h3>
+                    <p class="feature-description">
+                        カイワレは、プロジェクト情報を掲載する「場」を提供します。
+                        支援金の授受は、あなたと支援者の間で直接行われるため、
+                        複雑な決済手数料や送金手続きはありません。
+                    </p>
+                    <ul class="feature-points">
+                        <li>資金管理の自由度が高い</li>
+                        <li>余計な中間マージンなし</li>
+                        <li>支援者との直接的なつながり</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3 class="feature-title">地域を、未来を、育てる</h3>
+                    <p class="feature-description">
+                        カイワレは、地域の観光振興やまちづくりに特化したプラットフォーム。
+                        審査制を採用し、本気で地域を変えたいプロジェクトだけを掲載します。
+                        あなたの地域への想いを、全国に届けましょう。
+                    </p>
+                    <ul class="feature-points">
+                        <li>観光・まちづくり分野に特化</li>
+                        <li>全国の地域プロジェクトが対象</li>
+                        <li>厳格な審査で信頼性を確保</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 利用の流れ -->
+    <section style="background: white;">
+        <div class="section-content">
+            <h2 class="section-title">4ステップで、プロジェクトを全国へ</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">申込み</h3>
+                    <p class="step-description">
+                        掲載申込みフォームから必要事項を入力し、プロジェクト計画書と本人確認書類を提出
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">審査</h3>
+                    <p class="step-description">
+                        カイワレが内容を審査（5営業日以内に結果通知）
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">入金・掲載開始</h3>
+                    <p class="step-description">
+                        審査通過後、掲載料20万円をお支払い。入金確認後3営業日以内に掲載開始
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">プロジェクト実行</h3>
+                    <p class="step-description">
+                        支援を募り、目標達成を目指す。支援実績はあなたが報告、カイワレが更新
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- こんな方におすすめ -->
+    <section style="background: #F9FAFB;">
+        <div class="section-content">
+            <h2 class="section-title">カイワレは、こんなプロジェクトに最適です</h2>
+            <div class="recommend-grid">
+                <div class="recommend-card">
+                    <h3>高額プロジェクトを計画している方</h3>
+                    <p>
+                        500万円以上の大規模プロジェクトなら、従来型との差は数十万円以上。
+                        定額手数料が最大の武器になります。
+                    </p>
+                </div>
+                <div class="recommend-card">
+                    <h3>地域の観光資源を活かしたい方</h3>
+                    <p>
+                        古民家再生、観光ルート開発、地域特産品の開発など、
+                        観光振興に関するプロジェクトを応援します。
+                    </p>
+                </div>
+                <div class="recommend-card">
+                    <h3>まちづくりに情熱を持つ方</h3>
+                    <p>
+                        商店街活性化、コミュニティスペース創出、地域イベント開催など、
+                        地域を元気にするプロジェクトをお待ちしています。
+                    </p>
+                </div>
+                <div class="recommend-card">
+                    <h3>自由度の高い資金管理を求める方</h3>
+                    <p>
+                        支援金を直接受け取り、柔軟に活用したい方に最適です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金詳細 -->
+    <section style="background: white;">
+        <div class="section-content">
+            <h2 class="section-title">明快な料金体系</h2>
+            <div class="pricing-box">
+                <h3>基本プラン</h3>
+                <div class="price">200,000円</div>
+                <div class="price-period">（税込）/ 最大90日間</div>
+                <ul class="pricing-includes">
+                    <li>プロジェクトページ作成</li>
+                    <li>情報編集機能</li>
+                    <li>支援実績の手動更新</li>
+                    <li>基本サポート</li>
+                </ul>
+            </div>
+            <p style="text-align: center; color: #6B7280; margin-top: 2rem;">
+                ※オプションサービス（注目枠掲載、期間延長等）は現在準備中です
+            </p>
+        </div>
+    </section>
+
+    <!-- 重要な注意事項 -->
+    <section style="background: #F9FAFB;">
+        <div class="section-content">
+            <h2 class="section-title">ご利用前に必ずお読みください</h2>
+            <div class="warning-box">
+                <h3>カイワレは「プロジェクト情報の掲載サービス」です</h3>
+                <ul>
+                    <li>支援金の授受は、あなたと支援者の間で直接行われます</li>
+                    <li>カイワレは資金の管理・仲介を行いません</li>
+                    <li>プロジェクトの成功や、支援金の集まりを保証するものではありません</li>
+                    <li>掲載後のキャンセル・返金はできません</li>
+                    <li>詳しくは<a href="terms.html" style="color: #92400E; text-decoration: underline;">利用規約</a>をご確認ください</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background: white;">
+        <div class="section-content">
+            <h2 class="section-title">よくあるご質問</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Q: 目標金額に達しなかった場合、掲載料は返金されますか？</div>
+                    <div class="faq-answer">
+                        申し訳ございませんが、掲載開始後は返金できません。掲載料は「場所の提供」に対する対価です。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: 支援金はいつ受け取れますか？</div>
+                    <div class="faq-answer">
+                        支援者があなたの銀行口座に直接振り込むため、リアルタイムで受け取れます。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: 決済システムは使えますか？</div>
+                    <div class="faq-answer">
+                        カイワレでは決済システムを提供していません。支援者に直接振込をお願いする形になります。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: どんなプロジェクトでも掲載できますか？</div>
+                    <div class="faq-answer">
+                        観光・まちづくり分野に関連し、審査基準を満たすプロジェクトのみ掲載可能です。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: 支援者とのトラブルが起きたらどうなりますか？</div>
+                    <div class="faq-answer">
+                        当事者間で解決していただくことになります。カイワレは仲介者ではありません。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>あなたのプロジェクトを、全国へ</h2>
+        <p>定額手数料で、地域の未来を育てませんか？</p>
+        <div class="cta-buttons">
+            <a href="#start" class="btn btn-primary">プロジェクトを申込む</a>
+            <a href="terms.html" class="btn btn-secondary">利用規約を確認する</a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="tokushoho.html">特定商取引法に基づく表記</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">&copy; 2025 カイワレ. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
