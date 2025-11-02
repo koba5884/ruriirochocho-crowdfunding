@@ -260,6 +260,133 @@
             margin-bottom: 1rem;
         }
 
+        /* プログレスバーセクション */
+        .progress-section {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #8B6F47;
+        }
+
+        .progress-title {
+            font-size: 2rem;
+            color: #8B6F47;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .amount-display {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .amount-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .amount-label {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .amount-unit {
+            font-size: 1.5rem;
+            margin-left: 0.3rem;
+        }
+
+        .progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 50px;
+            height: 50px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #8B6F47 0%, #d4af37 100%);
+            height: 100%;
+            border-radius: 50px;
+            transition: width 1s ease-out;
+            box-shadow: 0 2px 10px rgba(139, 111, 71, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .progress-percentage {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8B6F47;
+        }
+
+        .supporters-info {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(139, 111, 71, 0.1);
+            border-radius: 10px;
+        }
+
+        .supporters-count {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 0.5rem 0;
+        }
+
+        .supporters-count-number {
+            font-size: 3rem;
+            margin: 0 0.3rem;
+        }
+
+        .supporters-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .target-goal {
+            color: #1565c0;
+        }
+
         /* フッター */
         footer {
             background: #333;
@@ -334,6 +461,38 @@
             .about {
                 padding: 2rem;
             }
+
+            .progress-section {
+                padding: 1.5rem;
+            }
+
+            .progress-title {
+                font-size: 1.5rem;
+            }
+
+            .amount-value {
+                font-size: 2rem;
+            }
+
+            .amount-unit {
+                font-size: 1.2rem;
+            }
+
+            .progress-percentage {
+                font-size: 1.2rem;
+            }
+
+            .supporters-count {
+                font-size: 1.5rem;
+            }
+
+            .supporters-count-number {
+                font-size: 2rem;
+            }
+
+            .supporters-label {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -367,6 +526,42 @@
                 width: 200px;
                 height: 200px;
             }
+
+            .progress-section {
+                padding: 1rem;
+            }
+
+            .progress-title {
+                font-size: 1.3rem;
+            }
+
+            .amount-value {
+                font-size: 1.5rem;
+            }
+
+            .amount-unit {
+                font-size: 1rem;
+            }
+
+            .progress-bar-container {
+                height: 40px;
+            }
+
+            .progress-percentage {
+                font-size: 1rem;
+            }
+
+            .supporters-count {
+                font-size: 1.2rem;
+            }
+
+            .supporters-count-number {
+                font-size: 1.8rem;
+            }
+
+            .supporters-label {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -398,7 +593,37 @@
                         <h3>企画</h3>
                         <p class="highlight-text">うきは市を盛り上げ隊</p>
                     </div>
+                </div>
 
+                <div class="progress-section">
+                    <h3 class="progress-title">目標達成状況</h3>
+                    <div class="amount-display">
+                        <div class="amount-item">
+                            <p class="amount-label">現在の達成金額</p>
+                            <p class="amount-value">
+                                <span id="current-amount">0</span><span class="amount-unit">円</span>
+                            </p>
+                        </div>
+                        <div class="amount-item">
+                            <p class="amount-label target-goal">目標金額</p>
+                            <p class="amount-value target-goal">
+                                <span id="target-amount">10,655,213</span><span class="amount-unit">円</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p class="progress-percentage">達成率: <span id="percentage">0</span>%</p>
+                    <div class="supporters-info">
+                        <p class="supporters-label">支援者数</p>
+                        <p class="supporters-count">
+                            <span class="supporters-count-number" id="supporters-count">0</span>人
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card">
                     <div class="info-item return-gift">
                         <h3>返礼品</h3>
                         <div class="gift-details">
@@ -443,5 +668,35 @@
             <p>&copy; 2025 るり色横丁 - うきは市を盛り上げ隊</p>
         </footer>
     </div>
+
+    <script>
+        // クラウドファンディングの進捗を更新する関数
+        function updateProgress(currentAmount, supportersCount = 0) {
+            const targetAmount = 10655213; // 目標金額
+            const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
+
+            // 現在の金額を表示（3桁区切り）
+            document.getElementById('current-amount').textContent = currentAmount.toLocaleString();
+
+            // プログレスバーの幅を更新
+            document.getElementById('progress-bar').style.width = percentage + '%';
+
+            // パーセンテージを表示（小数点1桁まで）
+            document.getElementById('percentage').textContent = percentage.toFixed(1);
+
+            // 支援者数を表示
+            document.getElementById('supporters-count').textContent = supportersCount;
+        }
+
+        // ページ読み込み時に初期値を設定
+        window.addEventListener('load', function() {
+            // 現在の達成金額と支援者数を設定（0円、0人からスタート）
+            updateProgress(0, 0);
+
+            // 金額と支援者数を更新したい場合は、以下のように呼び出してください
+            // 例: updateProgress(1000000, 100); // 100万円、100人に更新
+            // 例: updateProgress(5000000, 250); // 500万円、250人に更新
+        });
+    </script>
 </body>
 </html>
