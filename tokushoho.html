@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記 - カイワレ</title>
+    <meta name="description" content="カイワレの特定商取引法に基づく表記。販売事業者情報、料金、返金規定などを記載しています。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* リセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 基本スタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            line-height: 1.8;
+            background: #F9FAFB;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #10B981;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '🌱';
+            font-size: 1.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .breadcrumb a {
+            color: #10B981;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* メインコンテンツ */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 24px 3rem;
+        }
+
+        .tokushoho-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tokushoho-header h1 {
+            font-size: 2.5rem;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        /* 前文 */
+        .preamble {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #10B981;
+        }
+
+        /* テーブル */
+        .tokushoho-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #10B981;
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            width: 30%;
+        }
+
+        td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: #F9FAFB;
+        }
+
+        /* 重要な注意事項ボックス */
+        .warning-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid #F59E0B;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .warning-box h2 {
+            color: #92400E;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box h2::before {
+            content: '⚠️';
+        }
+
+        .warning-box h3 {
+            color: #92400E;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .warning-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .warning-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* サービス性質の説明ボックス */
+        .service-notice {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-left: 4px solid #3B82F6;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .service-notice h2 {
+            color: #1E40AF;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-notice h2::before {
+            content: 'ℹ️';
+        }
+
+        .service-notice ul {
+            margin-left: 1.5rem;
+        }
+
+        .service-notice li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* 価格テーブル */
+        .price-table {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #10B981;
+        }
+
+        .price-table h2 {
+            color: #065F46;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .price-item h3 {
+            color: #10B981;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .price-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #065F46;
+            margin: 0.5rem 0;
+        }
+
+        .price-details {
+            color: #4B5563;
+            font-size: 0.95rem;
+        }
+
+        .price-details ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 戻るトップボタン */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10B981;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            background: #059669;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top::before {
+            content: '↑';
+            font-size: 1.5rem;
+        }
+
+        /* フッター */
+        footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 24px 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            main {
+                padding: 90px 16px 2rem;
+            }
+
+            .tokushoho-header h1 {
+                font-size: 1.8rem;
+            }
+
+            /* テーブルを縦並びに */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 1rem;
+                border: 1px solid #E5E7EB;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            td {
+                position: relative;
+                padding-left: 40%;
+                text-align: left;
+                border-bottom: 1px solid #E5E7EB;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 35%;
+                padding: 1.5rem;
+                font-weight: 700;
+                background: #F3F4F6;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .warning-box,
+            .service-notice,
+            .price-table {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        /* 印刷用CSS */
+        @media print {
+            header,
+            .back-to-top,
+            footer {
+                display: none;
+            }
+
+            main {
+                padding-top: 2rem;
+            }
+
+            .tokushoho-table,
+            .warning-box,
+            .service-notice {
+                box-shadow: none;
+                border: 1px solid #E5E7EB;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">カイワレ</a>
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> / 特定商取引法に基づく表記
+            </div>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="tokushoho-header">
+            <h1>特定商取引法に基づく表記</h1>
+            <p class="last-updated">最終更新日：2025年11月2日</p>
+        </div>
+
+        <!-- 前文 -->
+        <section class="preamble">
+            <p>
+                特定商取引法に基づき、以下のとおり表記いたします。
+            </p>
+        </section>
+
+        <!-- サービス性質の説明 -->
+        <section class="service-notice">
+            <h2>本サービスの性質について</h2>
+            <p style="margin-bottom: 1rem;">
+                カイワレは「プロジェクト情報掲載サービス」を提供しており、以下の特徴があります：
+            </p>
+            <ul>
+                <li>本サービスはプロジェクト情報の掲載場所を提供するものです</li>
+                <li>資金の授受は支援者とプロジェクト実行者の間で直接行われます</li>
+                <li>当社は資金の管理・仲介を一切行いません</li>
+                <li>掲載料として200,000円（税込）をプロジェクト実行者から受領します</li>
+            </ul>
+        </section>
+
+        <!-- 基本情報テーブル -->
+        <section class="tokushoho-table">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>販売事業者</th>
+                        <td data-label="販売事業者">黒船</td>
+                    </tr>
+                    <tr>
+                        <th>運営責任者</th>
+                        <td data-label="運営責任者">小林佑輔</td>
+                    </tr>
+                    <tr>
+                        <th>所在地</th>
+                        <td data-label="所在地">〒839-1408 福岡県うきは市浮羽町朝田647-1 うきはICT研究所内</td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td data-label="電話番号">
+                            0943-76-9169<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">受付時間：平日 10:00〜17:00（土日祝日・年末年始を除く）</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td data-label="メールアドレス">g0632085@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>ホームページURL</th>
+                        <td data-label="ホームページURL">https://kaiware-cf.com/</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 料金・サービス内容 -->
+        <section class="price-table">
+            <h2>販売価格（サービス料金）</h2>
+            <div class="price-item">
+                <h3>プロジェクト情報掲載サービス</h3>
+                <div class="price-value">200,000円（税込）</div>
+                <div class="price-details">
+                    <p><strong>掲載期間：</strong>最大90日間</p>
+                    <p><strong>サービス内容：</strong></p>
+                    <ul>
+                        <li>プロジェクトページの作成・掲載</li>
+                        <li>プロジェクト情報の編集機能</li>
+                        <li>支援実績の手動更新（申告ベース）</li>
+                        <li>基本的なサポート</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #4B5563;">
+                ※上記価格には消費税（10%）が含まれています<br>
+                ※オプションサービス（注目枠掲載、期間延長等）は現在準備中です
+            </p>
+        </section>
+
+        <!-- 支払方法・時期テーブル -->
+        <section class="tokushoho-table">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>代金の支払時期</th>
+                        <td data-label="代金の支払時期">
+                            掲載申込み後、審査通過の通知を受け取ってから5営業日以内<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">※入金確認後、プロジェクトの掲載を開始します</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>代金の支払方法</th>
+                        <td data-label="代金の支払方法">
+                            <strong>銀行振込のみ</strong><br>
+                            <div style="margin-top: 0.5rem; padding: 1rem; background: #F3F4F6; border-radius: 4px;">
+                                <strong>振込先：</strong><br>
+                                福岡銀行 吉井支店<br>
+                                普通預金 口座番号：2600237<br>
+                                口座名義：クロフネ コバヤシユウスケ
+                            </div>
+                            <span style="font-size: 0.9rem; color: #6B7280; display: block; margin-top: 0.5rem;">
+                                ※振込手数料はお客様負担となります<br>
+                                ※クレジットカード決済、現金書留、代金引換、電子マネーは受け付けておりません
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>サービスの提供時期</th>
+                        <td data-label="サービスの提供時期">
+                            掲載料の入金確認後、3営業日以内にプロジェクトを掲載開始<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">※掲載開始日はメールにてお知らせします</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 返品・キャンセル・返金 -->
+        <section class="warning-box">
+            <h2>返品・キャンセル・返金について</h2>
+            <p style="font-weight: 700; margin-bottom: 1rem;">
+                情報サービスという性質上、原則として返品・返金はできません。
+            </p>
+
+            <h3>✓ 返金が可能な場合</h3>
+            <ul>
+                <li><strong>審査不合格となった場合</strong>
+                    <ul>
+                        <li>掲載料の全額を返金します</li>
+                        <li>返金時期：審査結果通知後、10営業日以内</li>
+                        <li>返金方法：お客様指定の銀行口座へ振込（振込手数料は当社負担）</li>
+                    </ul>
+                </li>
+                <li><strong>当社の責めに帰すべき事由により掲載できなかった場合</strong>
+                    <ul>
+                        <li>掲載料の全額を返金します</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>✗ 返金が不可能な場合</h3>
+            <ul>
+                <li>掲載開始後のお客様都合によるキャンセル</li>
+                <li>プロジェクトが目標金額に達しなかった場合</li>
+                <li>プロジェクトが失敗に終わった場合</li>
+                <li>掲載期間中に支援者が集まらなかった場合</li>
+                <li>お客様の都合による掲載内容の変更・削除希望</li>
+            </ul>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                ※詳細は<a href="terms.html" style="color: #92400E; text-decoration: underline;">利用規約第6条</a>をご確認ください
+            </p>
+        </section>
+
+        <!-- その他の規定テーブル -->
+        <section class="tokushoho-table">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>受付の可否の連絡</th>
+                        <td data-label="受付の可否の連絡">
+                            ・掲載申込み受付後、24時間以内に受付完了メールを送信<br>
+                            ・審査結果は申込みから5営業日以内にメール通知<br>
+                            ・審査通過後、入金案内を送付
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>販売数量の制限</th>
+                        <td data-label="販売数量の制限">
+                            特に制限はありません<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">※ただし、サーバー容量等の都合により新規受付を一時停止する場合があります</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>特別の販売条件</th>
+                        <td data-label="特別の販売条件">
+                            以下の条件を満たす方のみサービスをご利用いただけます：<br>
+                            ・18歳以上の方<br>
+                            ・日本国内に居住または事業拠点を持つ方<br>
+                            ・反社会的勢力でない方<br>
+                            ・プロジェクト内容が観光・まちづくり分野に関連する方<br>
+                            ・審査基準を満たす方
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>販売の制限</th>
+                        <td data-label="販売の制限">
+                            以下に該当する場合、サービス提供をお断りします：<br>
+                            ・虚偽の情報を提供した場合<br>
+                            ・過去に本サービスで規約違反があった場合<br>
+                            ・審査基準を満たさない場合<br>
+                            ・その他、当社が不適切と判断した場合
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>支払いの遅延に関する事項</th>
+                        <td data-label="支払いの遅延に関する事項">
+                            指定期日までに入金が確認できない場合、申込みは自動的にキャンセルとなります（再度申込みが必要です）
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>追加費用</th>
+                        <td data-label="追加費用">
+                            掲載料以外に当社へお支払いいただく費用はありません<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">※ただし、銀行振込の際の振込手数料はお客様負担です</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申込みの有効期限</th>
+                        <td data-label="申込みの有効期限">
+                            審査通過通知後、5営業日以内に入金がない場合、申込みは無効となります
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>不良品・瑕疵担保責任</th>
+                        <td data-label="不良品・瑕疵担保責任">
+                            当社の責めに帰すべき事由により掲載ができない場合、掲載料を全額返金します<br>
+                            <span style="font-size: 0.9rem; color: #6B7280;">※ただし、返金以外の損害賠償責任は負いません</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- サービス提供にあたっての留意事項 -->
+        <section class="warning-box">
+            <h2>サービス提供にあたっての重要な留意事項</h2>
+            <ul>
+                <li>本サービスは<strong>「プロジェクト情報の掲載」のみ</strong>を提供するものです</li>
+                <li>資金調達の成功、プロジェクトの実現、支援者の獲得を<strong>保証するものではありません</strong></li>
+                <li>支援金の授受は、プロジェクト実行者と支援者の間で直接行われます</li>
+                <li>当社は資金の管理・仲介を一切行いません</li>
+                <li>掲載したプロジェクトに支援が集まらなくても、掲載料の返金は行いません</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+                詳細は<a href="terms.html" style="color: #92400E; text-decoration: underline;">利用規約</a>をご確認ください。
+            </p>
+        </section>
+
+        <!-- その他情報 -->
+        <section class="tokushoho-table">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>関連ページ</th>
+                        <td data-label="関連ページ">
+                            <a href="terms.html" style="color: #10B981; text-decoration: underline;">利用規約</a><br>
+                            <a href="privacy.html" style="color: #10B981; text-decoration: underline;">プライバシーポリシー</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>古物商許可</th>
+                        <td data-label="古物商許可">該当なし（物品の販売ではないため）</td>
+                    </tr>
+                    <tr>
+                        <th>資金移動業登録</th>
+                        <td data-label="資金移動業登録">該当なし（資金の授受を仲介しないため）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- 戻るトップボタン -->
+    <div class="back-to-top" aria-label="トップへ戻る"></div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="terms.html">利用規約</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="tokushoho.html">特定商取引法に基づく表記</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">&copy; 2025 カイワレ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 戻るトップボタンの表示制御
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
