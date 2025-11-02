@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>るり色横丁 - クラウドファンディング支援募集</title>
+    <style>
+        /* リセットとベーススタイル */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #e3f2fd 0%, #ffffff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 4rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-title {
+            font-size: 4rem;
+            color: #d32f2f;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #d32f2f;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: linear-gradient(90deg, transparent, #8B6F47, transparent);
+            color: white;
+            letter-spacing: 0.1em;
+        }
+
+        /* インフォメーションカード */
+        .info-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border-left: 6px solid #8B6F47;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item h3 {
+            font-size: 1.5rem;
+            color: #8B6F47;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dotted #8B6F47;
+        }
+
+        .highlight-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 0.5rem 0;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* 返礼品セクション */
+        .return-gift {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-left-color: #d32f2f;
+        }
+
+        .gift-details {
+            background: #8B6F47;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .gift-amount {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-voucher {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        .price-large {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        .usage-info {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        /* 銀行情報 */
+        .bank-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+        }
+
+        .bank-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .account-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            color: #d32f2f;
+        }
+
+        .account-holder {
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+
+        /* QRコードセクション */
+        .qr-section {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #8B6F47 0%, #6d5738 100%);
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .qr-placeholder {
+            background: white;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-placeholder p {
+            font-size: 1.2rem;
+            color: #8B6F47;
+            font-weight: bold;
+        }
+
+        .qr-note {
+            font-size: 1.5rem;
+            color: #d32f2f !important;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Aboutセクション */
+        .about {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 3px solid #8B6F47;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            color: #8B6F47;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* プログレスバーセクション */
+        .progress-section {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #8B6F47;
+        }
+
+        .progress-title {
+            font-size: 2rem;
+            color: #8B6F47;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .amount-display {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .amount-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .amount-label {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .amount-unit {
+            font-size: 1.5rem;
+            margin-left: 0.3rem;
+        }
+
+        .progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 50px;
+            height: 50px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #8B6F47 0%, #d4af37 100%);
+            height: 100%;
+            border-radius: 50px;
+            transition: width 1s ease-out;
+            box-shadow: 0 2px 10px rgba(139, 111, 71, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .progress-percentage {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8B6F47;
+        }
+
+        .supporters-info {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(139, 111, 71, 0.1);
+            border-radius: 10px;
+        }
+
+        .supporters-count {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 0.5rem 0;
+        }
+
+        .supporters-count-number {
+            font-size: 3rem;
+            margin: 0 0.3rem;
+        }
+
+        .supporters-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .target-goal {
+            color: #1565c0;
+        }
+
+        /* フッター */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 1.5rem 2rem;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .info-item {
+                padding: 1.5rem;
+            }
+
+            .info-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .highlight-text {
+                font-size: 1.5rem;
+            }
+
+            .gift-details {
+                padding: 1rem;
+            }
+
+            .gift-amount {
+                font-size: 1rem;
+            }
+
+            .gift-voucher {
+                font-size: 1.2rem;
+            }
+
+            .price {
+                font-size: 1.4rem;
+            }
+
+            .price-large {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .about {
+                padding: 2rem;
+            }
+
+            .progress-section {
+                padding: 1.5rem;
+            }
+
+            .progress-title {
+                font-size: 1.5rem;
+            }
+
+            .amount-value {
+                font-size: 2rem;
+            }
+
+            .amount-unit {
+                font-size: 1.2rem;
+            }
+
+            .progress-percentage {
+                font-size: 1.2rem;
+            }
+
+            .supporters-count {
+                font-size: 1.5rem;
+            }
+
+            .supporters-count-number {
+                font-size: 2rem;
+            }
+
+            .supporters-label {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 1rem 1.5rem;
+                width: 90%;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+            }
+
+            .info-item {
+                padding: 1rem;
+            }
+
+            .qr-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+
+            .progress-section {
+                padding: 1rem;
+            }
+
+            .progress-title {
+                font-size: 1.3rem;
+            }
+
+            .amount-value {
+                font-size: 1.5rem;
+            }
+
+            .amount-unit {
+                font-size: 1rem;
+            }
+
+            .progress-bar-container {
+                height: 40px;
+            }
+
+            .progress-percentage {
+                font-size: 1rem;
+            }
+
+            .supporters-count {
+                font-size: 1.2rem;
+            }
+
+            .supporters-count-number {
+                font-size: 1.8rem;
+            }
+
+            .supporters-label {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-image">
+                <img src="クラファンの支援募集.png" alt="るり色横丁 商店街イメージ">
+            </div>
+            <div class="hero-content">
+                <h1 class="main-title">るり色横丁</h1>
+                <p class="subtitle">うきうき わくわくする街づくり</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="crowdfunding-info">
+                <h2 class="section-title">クラウドファンディング支援募集</h2>
+
+                <div class="info-card">
+                    <div class="info-item">
+                        <h3>募集期限</h3>
+                        <p class="highlight-text">2025年11月1日〜</p>
+                        <p>2ヶ月程度</p>
+                        <p class="note">（目標金額に達成次第終了）</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>企画</h3>
+                        <p class="highlight-text">うきは市を盛り上げ隊</p>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <h3 class="progress-title">目標達成状況</h3>
+                    <div class="amount-display">
+                        <div class="amount-item">
+                            <p class="amount-label">現在の達成金額</p>
+                            <p class="amount-value">
+                                <span id="current-amount">0</span><span class="amount-unit">円</span>
+                            </p>
+                        </div>
+                        <div class="amount-item">
+                            <p class="amount-label target-goal">目標金額</p>
+                            <p class="amount-value target-goal">
+                                <span id="target-amount">10,655,213</span><span class="amount-unit">円</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p class="progress-percentage">達成率: <span id="percentage">0</span>%</p>
+                    <div class="supporters-info">
+                        <p class="supporters-label">支援者数</p>
+                        <p class="supporters-count">
+                            <span class="supporters-count-number" id="supporters-count">0</span>人
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-item return-gift">
+                        <h3>返礼品</h3>
+                        <div class="gift-details">
+                            <p class="gift-amount">一口 <span class="price">10,000円</span> につき</p>
+                            <p class="gift-voucher">商品券 <span class="price-large">11,000円</span> 発行</p>
+                        </div>
+                        <p class="usage-info">TOYCAFEグループ（喫茶、BAR、学習塾、不動産）で使用できます</p>
+                    </div>
+
+                    <div class="info-item bank-info">
+                        <h3>振込先</h3>
+                        <p class="bank-name">福岡銀行 普通口座 <span class="account-number">2631744</span></p>
+                        <p class="account-holder">バンカーランプ 会計</p>
+                    </div>
+                </div>
+<!--
+
+                <div class="qr-section">
+                    <div class="qr-placeholder">
+                        <p>QRコード</p>
+                        <p class="qr-note">Thank you!</p>
+                    </div>
+                </div>
+-->
+            </section>
+<!--
+            <section class="about">
+                <h2>プロジェクトについて</h2>
+                <p>
+                    「るり色横丁」は、うきは市を盛り上げるための街づくりプロジェクトです。
+                    懐かしくも新しい、うきうき・わくわくする商店街の魅力を創造し、
+                    地域の活性化を目指しています。
+                </p>
+                <p>
+                    皆様のご支援をお待ちしております。
+                </p>
+            </section>
+-->
+        </main>
+
+        <footer>
+            <p>&copy; 2025 るり色横丁 - うきは市を盛り上げ隊</p>
+        </footer>
+    </div>
+
+    <script>
+        // クラウドファンディングの進捗を更新する関数
+        function updateProgress(currentAmount, supportersCount = 0) {
+            const targetAmount = 10655213; // 目標金額
+            const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
+
+            // 現在の金額を表示（3桁区切り）
+            document.getElementById('current-amount').textContent = currentAmount.toLocaleString();
+
+            // プログレスバーの幅を更新
+            document.getElementById('progress-bar').style.width = percentage + '%';
+
+            // パーセンテージを表示（小数点1桁まで）
+            document.getElementById('percentage').textContent = percentage.toFixed(1);
+
+            // 支援者数を表示
+            document.getElementById('supporters-count').textContent = supportersCount;
+        }
+
+        // ページ読み込み時に初期値を設定
+        window.addEventListener('load', function() {
+            // 現在の達成金額と支援者数を設定（0円、0人からスタート）
+            updateProgress(0, 0);
+
+            // 金額と支援者数を更新したい場合は、以下のように呼び出してください
+            // 例: updateProgress(1000000, 100); // 100万円、100人に更新
+            // 例: updateProgress(5000000, 250); // 500万円、250人に更新
+        });
+    </script>
+</body>
+</html>
