@@ -344,12 +344,141 @@
             }
         }
 
+        /* 注目のプロジェクトセクション */
+        .featured-projects {
+            background: white;
+            padding: 4rem 24px;
+        }
+
+        .featured-projects-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6B7280;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #E5E7EB;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+            border-color: #10B981;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #E5E7EB;
+            margin-bottom: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #9CA3AF;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .project-link {
+            display: block;
+            text-align: center;
+            background: #10B981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
         /* フッター */
         footer {
             background: #1F2937;
             color: white;
             padding: 3rem 24px 2rem;
-            margin-top: 4rem;
+            margin-top: 0;
         }
 
         .footer-content {
@@ -457,6 +586,18 @@
                 align-items: center;
                 gap: 1rem;
             }
+
+            .featured-projects {
+                padding: 3rem 16px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -542,6 +683,45 @@
         <!-- スクロールダウンアイコン -->
         <div class="scroll-indicator" aria-label="下にスクロール"></div>
     </main>
+
+    <!-- 注目のプロジェクトセクション -->
+    <section class="featured-projects" id="projects">
+        <div class="featured-projects-content">
+            <div class="section-header">
+                <h2>注目のプロジェクト</h2>
+                <p>地域を盛り上げる魅力的なプロジェクトをご紹介します</p>
+            </div>
+            <div class="projects-grid">
+                <!-- るり色横丁プロジェクト -->
+                <article class="project-card">
+                    <div class="project-image">🏮</div>
+                    <div class="project-content">
+                        <span class="project-tag">観光・まちづくり</span>
+                        <h3 class="project-title">るり色横丁</h3>
+                        <p class="project-description">
+                            うきは市を盛り上げるための街づくりプロジェクト。懐かしくも新しい、
+                            うきうき・わくわくする商店街の魅力を創造し、地域の活性化を目指します。
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">目標金額</div>
+                                <div class="stat-value">1,065万円</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">掲載期間</div>
+                                <div class="stat-value">90日間</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">支援者数</div>
+                                <div class="stat-value">募集中</div>
+                            </div>
+                        </div>
+                        <a href="ruriiro_yokocho/index.html" class="project-link">プロジェクトを見る</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
     <!-- フッター -->
     <footer>
