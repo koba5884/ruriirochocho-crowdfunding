@@ -569,18 +569,32 @@
 
             td {
                 position: relative;
-                padding-left: 50%;
+                padding: 1rem 1rem 1rem 50%;
                 text-align: left;
+                border: none;
+                border-bottom: 1px solid #E5E7EB;
+                display: flex;
+                align-items: center;
+                min-height: 60px;
+            }
+
+            td:last-child {
+                border-bottom: none;
             }
 
             td::before {
                 content: attr(data-label);
                 position: absolute;
                 left: 0;
-                width: 45%;
-                padding: 1.5rem;
+                top: 0;
+                bottom: 0;
+                width: 50%;
+                padding: 1rem;
                 font-weight: 700;
                 background: #F3F4F6;
+                display: flex;
+                align-items: center;
+                border-right: 1px solid #E5E7EB;
             }
 
             .cta-buttons {
