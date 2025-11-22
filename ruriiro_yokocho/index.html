@@ -673,15 +673,16 @@
         // クラウドファンディングの進捗を更新する関数
         function updateProgress(currentAmount, supportersCount = 0) {
             const targetAmount = 10655213; // 目標金額
-            const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
+            const percentage = (currentAmount / targetAmount) * 100;
+            const barWidth = Math.min(percentage, 100); // プログレスバーは100%で止める
 
             // 現在の金額を表示（3桁区切り）
             document.getElementById('current-amount').textContent = currentAmount.toLocaleString();
 
-            // プログレスバーの幅を更新
-            document.getElementById('progress-bar').style.width = percentage + '%';
+            // プログレスバーの幅を更新（100%以上にはならない）
+            document.getElementById('progress-bar').style.width = barWidth + '%';
 
-            // パーセンテージを表示（小数点1桁まで）
+            // パーセンテージを表示（小数点1桁まで、100%超えも表示）
             document.getElementById('percentage').textContent = percentage.toFixed(1);
 
             // 支援者数を表示
@@ -697,7 +698,8 @@
             // updateProgress(5390000, 20);
             // updateProgress(5770000, 22);
             // updateProgress(6680000, 25);
-            updateProgress(8480000, 26);
+            // updateProgress(8480000, 26);
+            updateProgress(10720000, 27);
 
             // 金額と支援者数を更新したい場合は、以下のように呼び出してください
             // 例: updateProgress(1000000, 100); // 100万円、100人に更新
